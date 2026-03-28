@@ -1,0 +1,103 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Entornos virtuales
+# =========================
+venv/
+env/
+ENV/
+.venv/
+
+# =========================
+# Variables de entorno
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Archivos de Django
+# =========================
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# =========================
+# Archivos de migraciones (opcional)
+# =========================
+# Si trabajas en equipo, NO ignores esto
+# */migrations/*
+# !*/migrations/__init__.py
+
+# =========================
+# Archivos estáticos y media
+# =========================
+staticfiles/
+media/
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Sistema operativo
+# =========================
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Pytest / coverage
+# =========================
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Build / dist
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Jupyter (por si usas después 👀)
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Archivos temporales
+# =========================
+*.swp
+*.swo
+*~
+
+# =========================
+# Docker (si luego usas)
+# =========================
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Otros
+# =========================
+*.bak
+*.tmp
