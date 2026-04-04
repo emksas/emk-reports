@@ -26,7 +26,7 @@ class IncomeViewSet( viewsets.ModelViewSet ):
         return queryset
 
     def list(self, request, *args, **kwargs):
-        queryset = self.queryset()
+        queryset = self.get_queryset()
 
         if not queryset.exists():
             return Response(
