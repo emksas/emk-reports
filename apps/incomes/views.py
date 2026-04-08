@@ -59,6 +59,18 @@ class IncomeViewSet( viewsets.ModelViewSet ):
 
         return Response(serializer.data)
 
+
+    def create(self, request, *args, **kwargs):
+        print( "REQUEST DATA:", request.data )
+        serializer = self.get_serializer(data=request.data)
+
+        if not serializer.is_valid():
+            print( "SERIALIZER ERRORS:", serializer.errors )
+            return Response(serializer.errors, status=400)
+
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
     @action(detail=False, methods=['delete'], url_path='delete-by-user-account')
     def delete_by_user_account(self, request):
         user_id = request.query_params.get('user_id')

@@ -1,7 +1,7 @@
 from django.db import models
 
 class Income(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
 
     value = models.DecimalField(
         max_digits=14,
@@ -30,7 +30,7 @@ class Income(models.Model):
         blank=True
     )
 
-    date = models.DateField(
+    date = models.DateTimeField(
         db_column="fecha"
     )
 
