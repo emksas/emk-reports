@@ -1,19 +1,20 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 # Evita problemas de buffer (logs en tiempo real)
 ENV PYTHONUNBUFFERED=1
 
-# Carpeta de trabajo dentro del contenedor
+FROM python:3.12-slim
+
 WORKDIR /app
 
-# Copiar requirements primero (mejora cache)
 COPY requirements.txt .
 
-# Instalar dependencias
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar todo el proyecto
 COPY . .
 
-# Exponer puerto
-EXPOSE 9000
+EXPOSE 3000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:3000"]
