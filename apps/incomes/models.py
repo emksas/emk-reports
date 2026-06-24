@@ -1,6 +1,12 @@
 from django.db import models
 
 class Income(models.Model):
+    """
+    Represents an income stored in the existing `ingreso` table.
+
+    Python field names are kept in English for the API, while db_column points
+    to the actual column names in the database.
+    """
     id = models.AutoField(primary_key=True)
 
     value = models.DecimalField(
@@ -25,7 +31,7 @@ class Income(models.Model):
 
     payment_method = models.CharField(
         max_length=100,
-        db_column="metododepago",
+        db_column="metodo_de_pago",
         null=True,
         blank=True
     )
@@ -42,7 +48,7 @@ class Income(models.Model):
     )
 
     financial_planning_id = models.IntegerField(
-        db_column="idplanificacionfinanciera",
+        db_column="planificacion_financiera_id",
         null=True,
         blank=True
     )
@@ -58,8 +64,9 @@ class Income(models.Model):
     )
 
     class Meta:
-        db_table = "ingreso"   # 👈 nombre exacto de la tabla
-        managed = False        # 👈 NO deja que Django la toque
+        # Existing PostgreSQL table. Django must not create or modify it.
+        db_table = "ingreso"
+        managed = False
 
     def __str__(self):
         return f"{self.source} - {self.value}"
