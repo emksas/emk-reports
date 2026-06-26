@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar todo el proyecto
 COPY . .
 
+RUN cp .env.example .env && python manage.py test && rm .env
+
 EXPOSE 8084
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8084"]
